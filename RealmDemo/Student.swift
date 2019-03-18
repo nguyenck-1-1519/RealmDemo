@@ -7,9 +7,31 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
-class Student: NSObject {
-    @objc dynamic var name: String?
-    @objc dynamic var age: Int = 0
+class Student: Object {
+    @objc dynamic var person: Person? = nil
+    @objc dynamic var tmpId = 0
+    @objc dynamic var name: String { //read only prop >> auto ignored
+        return "\(firstName) \(lastName)"
+    }
+    @objc dynamic var firstName: String?
+    @objc dynamic var lastName: String?
+    let bags = List<Bag>()
+    let age = RealmOptional<Int>()
+
+    override static func indexedProperties() -> [String] {
+        return ["name"]
+    }
+
+    override static func ignoredProperties() -> [String] {
+        return ["tmpId"]
+    }
+
+    convenience init(person: Person, firstName: String, lastName: String) {
+        self.init()
+        self.person = person
+        self.firstName = firstName
+        self.lastName = lastName
+    }
 }
