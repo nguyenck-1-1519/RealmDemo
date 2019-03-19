@@ -15,8 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstNameTextfield: UITextField!
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var idTextfield: UITextField!
-    
+    @IBOutlet weak var filteringButton: UIButton!
+
     var count = 0
+    var isFiltering = false
     var listStudent: Results<Student>?
     
     override func viewDidLoad() {
@@ -24,6 +26,20 @@ class ViewController: UIViewController {
         listStudent = Repository.shared.getAllStudent()
     }
     
+    @IBAction func onFilteringButtonClicked(_ sender: Any) {
+        if isFiltering {
+            filteringButton.backgroundColor = .lightGray
+            filteringButton.setTitle("Filtering Students Without Bag", for: .normal)
+            listStudent = Repository.shared.getAllStudent()
+        } else {
+            filteringButton.backgroundColor = .blue
+            filteringButton.setTitle("Filter Students Without Bag", for: .normal)
+            listStudent = Repository.shared.getAllStudentWithoutBags()
+        }
+        isFiltering = !isFiltering
+        tableView.reloadData()
+    }
+
     @IBAction func onAddButtonClicked(_ sender: Any) {
         guard let firstName = firstNameTextfield.text, !firstName.isEmpty,
             let lastName = lastNameTextfield.text, !lastName.isEmpty,

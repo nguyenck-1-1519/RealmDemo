@@ -17,6 +17,12 @@ class Repository {
     func getAllStudent() -> Results<Student>? {
         return realm?.objects(Student.self).sorted(byKeyPath: "id", ascending: true)
     }
+
+    func getAllStudentWithoutBags() -> Results<Student>? {
+        return realm?.objects(Student.self)
+            .filter(NSPredicate(format: "bags.@count <= 0"))
+            .sorted(byKeyPath: "id", ascending: true)
+    }
     
     func add(student: Student) {
         do {

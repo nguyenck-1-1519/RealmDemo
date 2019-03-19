@@ -14,9 +14,9 @@ class Student: Object {
     @objc dynamic var tmpId = 0
     @objc dynamic var id: String?
     @objc dynamic var name: String { //read only prop >> auto ignored
-        return "\(firstName ?? "") \(lastName ?? "")"
+        return "\(firstNamev1 ?? "") \(lastName ?? "")"
     }
-    @objc dynamic var firstName: String?
+    @objc dynamic var firstNamev1: String?
     @objc dynamic var lastName: String?
     let bags = List<Bag>()
     
@@ -36,7 +36,7 @@ class Student: Object {
         self.init()
         self.id = id
         self.person = person
-        self.firstName = firstName
+        self.firstNamev1 = firstName
         self.lastName = lastName
     }
 }
