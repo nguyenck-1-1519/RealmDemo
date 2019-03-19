@@ -47,7 +47,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell") as? TextTableViewCell else {
             return UITableViewCell()
         }
-        cell.contentLabel.text = "\(String(describing: student.id)) -- \(String(describing: student.firstName)) \(String(describing: student.lastName))"
+        cell.contentLabel.text = "\(String(describing: student.id)) -- \(student.name)"
         return cell
     }
 
@@ -58,6 +58,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         vc.owner = listStudent[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let listStudent = listStudent else { return }
+            Repository.shared.delete(student: listStudent[indexPath.row])
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
   

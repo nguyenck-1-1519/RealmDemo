@@ -38,4 +38,17 @@ class Repository {
             print(error)
         }
     }
+
+    func  delete(bagIndex: Int, owner: Student) {
+        try? realm?.write {
+            owner.bags.remove(at: bagIndex)
+            realm?.add(owner, update: true)
+        }
+    }
+
+    func delete(student: Student) {
+        try? realm?.write {
+            realm?.delete(student)
+        }
+    }
 }

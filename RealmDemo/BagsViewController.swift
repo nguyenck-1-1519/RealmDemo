@@ -25,7 +25,7 @@ class BagsViewController: UIViewController {
         }
         let bag = Bag(color: color)
         Repository.shared.add(bag: bag, forOwner: owner)
-        colorTextfield.text = "" 
+        colorTextfield.text = ""
         tableView.reloadData()
     }
 }
@@ -41,5 +41,12 @@ extension BagsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.contentLabel.text = owner.bags[indexPath.row].color
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Repository.shared.delete(bagIndex: indexPath.row, owner: owner)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
