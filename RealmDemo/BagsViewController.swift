@@ -23,8 +23,23 @@ class BagsViewController: UIViewController {
         guard let color = colorTextfield.text, !color.isEmpty else {
             return
         }
-//        var bag = Bag(color: color)
-//        bag.owner = owner
+        let bag = Bag(color: color)
+        Repository.shared.add(bag: bag, forOwner: owner)
+        colorTextfield.text = "" 
+        tableView.reloadData()
+    }
+}
 
+extension BagsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return owner.bags.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BagsTableViewCell") as? TextTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.contentLabel.text = owner.bags[indexPath.row].color
+        return cell
     }
 }

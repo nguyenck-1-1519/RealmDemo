@@ -11,6 +11,7 @@ import RealmSwift
 
 class Repository {
     static let shared = Repository()
+
     let realm = try? Realm()
     
     func getAllStudent() -> Results<Student>? {
@@ -21,6 +22,17 @@ class Repository {
         do {
             try realm?.write {
                 realm?.add(student, update: true)
+            }
+        } catch let error {
+            print(error)
+        }
+    }
+
+    func add(bag: Bag, forOwner owner: Student) {
+        do {
+            try realm?.write {
+                owner.bags.append(bag)
+                realm?.add(owner, update: true)
             }
         } catch let error {
             print(error)

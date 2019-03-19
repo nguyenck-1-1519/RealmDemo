@@ -13,7 +13,7 @@ class Student: Object {
     @objc dynamic var person: Person? = nil
     @objc dynamic var tmpId = 0
     @objc dynamic var name: String { //read only prop >> auto ignored
-        return "\(firstName) \(lastName)"
+        return "\(String(describing: firstName)) \(String(describing: lastName))"
     }
     @objc dynamic var firstName: String?
     @objc dynamic var lastName: String?

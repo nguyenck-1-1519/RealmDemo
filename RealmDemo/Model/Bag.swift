@@ -13,9 +13,8 @@ class Bag: Object {
     @objc dynamic var color: String?
     let owner = LinkingObjects(fromType: Student.self, property: "bags")
     
-    convenience init(color: String, owner: Student) {
+    convenience init(color: String) {
         self.init()
         self.color = color
-//        self.owner.valu = owner
     }
 }

@@ -50,5 +50,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentLabel.text = "\(String(describing: student.id)) -- \(String(describing: student.firstName)) \(String(describing: student.lastName))"
         return cell
     }
-}
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let listStudent = listStudent,
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BagsViewController") as? BagsViewController else {
+            return
+        }
+        vc.owner = listStudent[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+  
