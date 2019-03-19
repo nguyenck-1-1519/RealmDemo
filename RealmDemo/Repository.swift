@@ -15,7 +15,7 @@ class Repository {
     let realm = try? Realm()
     
     func getAllStudent() -> Results<Student>? {
-        return realm?.objects(Student.self)
+        return realm?.objects(Student.self).sorted(byKeyPath: "id", ascending: true)
     }
     
     func add(student: Student) {
