@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B39CD33223FE25E006F5C14 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39CD32223FE25E006F5C14 /* Repository.swift */; };
+		1B9C46E0224019CF00449106 /* BagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C46DF224019CF00449106 /* BagsViewController.swift */; };
 		20EBCEDD2E8D6E6E47F4A4CE /* Pods_RealmDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C16F9F58BF67E5B14B18101 /* Pods_RealmDemo.framework */; };
 		61842EED223A48DB00B6AD0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61842EEC223A48DB00B6AD0E /* AppDelegate.swift */; };
 		61842EEF223A48DB00B6AD0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61842EEE223A48DB00B6AD0E /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B39CD32223FE25E006F5C14 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		1B9C46DF224019CF00449106 /* BagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagsViewController.swift; sourceTree = "<group>"; };
 		1D8B43DAC9899ADE6031BDC8 /* Pods_RealmDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F04DC68C29705003C871AE8 /* Pods-RealmDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealmDemoTests/Pods-RealmDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		48A9243A113962C57F515B09 /* Pods_RealmDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +101,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B39CD34223FE972006F5C14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				61842F1A223B42DC00B6AD0E /* Student.swift */,
+				61842F22223F9C0500B6AD0E /* Bag.swift */,
+				61842F1E223F992400B6AD0E /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1C6ECB0177C80055F496CC0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,15 +159,15 @@
 		61842EEB223A48DB00B6AD0E /* RealmDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1B39CD34223FE972006F5C14 /* Model */,
 				61842EEC223A48DB00B6AD0E /* AppDelegate.swift */,
+				1B39CD32223FE25E006F5C14 /* Repository.swift */,
 				61842EEE223A48DB00B6AD0E /* ViewController.swift */,
+				1B9C46DF224019CF00449106 /* BagsViewController.swift */,
 				61842F1C223B5D2100B6AD0E /* TextTableViewCell.swift */,
-				61842F1A223B42DC00B6AD0E /* Student.swift */,
-				61842F22223F9C0500B6AD0E /* Bag.swift */,
-				61842F1E223F992400B6AD0E /* Person.swift */,
 				61842EF0223A48DB00B6AD0E /* Main.storyboard */,
-				61842EF3223A48DD00B6AD0E /* Assets.xcassets */,
 				61842EF5223A48DE00B6AD0E /* LaunchScreen.storyboard */,
+				61842EF3223A48DD00B6AD0E /* Assets.xcassets */,
 				61842EF8223A48DE00B6AD0E /* Info.plist */,
 			);
 			path = RealmDemo;
@@ -405,12 +419,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B39CD33223FE25E006F5C14 /* Repository.swift in Sources */,
 				61842F1F223F992400B6AD0E /* Person.swift in Sources */,
 				61842EEF223A48DB00B6AD0E /* ViewController.swift in Sources */,
 				61842F1B223B42DC00B6AD0E /* Student.swift in Sources */,
 				61842F1D223B5D2100B6AD0E /* TextTableViewCell.swift in Sources */,
 				61842F23223F9C0500B6AD0E /* Bag.swift in Sources */,
 				61842EED223A48DB00B6AD0E /* AppDelegate.swift in Sources */,
+				1B9C46E0224019CF00449106 /* BagsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
